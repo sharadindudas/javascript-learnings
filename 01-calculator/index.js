@@ -15,22 +15,21 @@ buttons.forEach((btn) => {
                 output.value = "0";
                 break;
             case "DEL":
-                output.value.length === 1
-                    ? (output.value = "0")
-                    : (output.value = output.value.slice(0, -1));
+                output.value =
+                    output.value.length === 1 ? "0" : output.value.slice(0, -1);
                 break;
             case "=":
                 try {
                     output.value = eval(output.value);
                 } catch (err) {
-                    console.error(err);
+                    console.error(err.message);
                     output.value = "Error";
                 }
                 break;
             default:
                 if (isOperator(currentButtonValue) && isOperator(lastCharacter))
                     return;
-                else if (isOperator(currentButtonValue) && output.value === "0")
+                else if (output.value === "0" && isOperator(currentButtonValue))
                     return;
                 else if (
                     output.value === "0" ||
@@ -40,6 +39,7 @@ buttons.forEach((btn) => {
                 } else {
                     output.value += currentButtonValue;
                 }
+                output.scrollLeft = output.scrollWidth;
         }
     });
 });
