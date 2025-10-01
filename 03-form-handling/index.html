@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form handling in javascript</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <form>
+            <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Name"
+                required
+                autocomplete="on"
+            />
+            <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+                autocomplete="on"
+            />
+            <input
+                id="photo"
+                name="photo"
+                type="text"
+                placeholder="Photo URL"
+                autocomplete="on"
+            />
+            <button type="submit">Submit</button>
+        </form>
+        <div class="cards-container"></div>
+        <script src="index.js"></script>
+    </body>
+</html>
