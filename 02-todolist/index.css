@@ -19,7 +19,7 @@ button {
     cursor: pointer;
 }
 
-#container {
+form {
     max-width: 360px;
     width: 100%;
 }
