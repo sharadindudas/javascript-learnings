@@ -7,33 +7,57 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <form>
-            <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Name"
-                required
-                autocomplete="on"
-            />
-            <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Email"
-                required
-                autocomplete="on"
-            />
-            <input
-                id="photo"
-                name="photo"
-                type="text"
-                placeholder="Photo URL"
-                autocomplete="on"
-            />
+        <h2 style="margin-bottom: 20px">Form Validation</h2>
+        <form novalidate autocomplete="on" autocorrect="on">
+            <div class="form-input name-input">
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Name"
+                    required
+                    autofocus
+                />
+                <div class="error-message"></div>
+            </div>
+            <div class="form-input email-input">
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                    required
+                />
+                <div class="error-message"></div>
+            </div>
+            <div class="form-input">
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    required
+                />
+                <div class="error-message"></div>
+            </div>
+            <div class="form-input">
+                <select name="gender" id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <div class="error-message"></div>
+            </div>
+            <div class="form-input">
+                <textarea
+                    name="bio"
+                    id="bio"
+                    placeholder="Tell us about yourself"
+                    rows="10"
+                ></textarea>
+                <div class="error-message"></div>
+            </div>
             <button type="submit">Submit</button>
         </form>
-        <div class="cards-container"></div>
         <script src="index.js"></script>
     </body>
 </html>

@@ -1,25 +1,33 @@
 const form = document.querySelector("form");
-const cardsContainer = document.querySelector(".cards-container");
+const errorMessage = document.querySelector(".error-message");
+const nameErrorMessage = document
+    .querySelector(".name-input")
+    .querySelector(".error-message");
+const emailErrorMessage = document
+    .querySelector(".email-input")
+    .querySelector(".error-message");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const name = e.target[0].value;
     const email = e.target[1].value;
-    const photoUrl = e.target[2].value;
+    const password = e.target[2].value;
+    const gender = e.target[3].value;
+    const bio = e.target[4].value;
 
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    cardElement.innerHTML = `
-            <img
-                src=${photoUrl}
-                alt="Profile Photo"
-                class="photo-url"
-            />
-            <div class="card-info">
-                <h3>${name}</h3>
-                <p>${email}</p>
-            </div>
-    `;
-    cardsContainer.appendChild(cardElement);
-    form.reset();
+    if (!name || name.length === 0) {
+        nameErrorMessage.textContent = "Please provide a name";
+        return;
+    } else if (name.length < 3) {
+        nameErrorMessage.textContent = "Name must be at least 3 characters";
+        return;
+    } else if (name.length > 60) {
+        nameErrorMessage.textContent = "Name must not exceed 60 characters";
+        return;
+    } else if (!email || email.length === 0) {
+        emailErrorMessage.textContent = "Please provide an email";
+        return;
+    }
+
+    // form.reset();
 });
