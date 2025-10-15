@@ -9,7 +9,7 @@
     <body>
         <h2 style="margin-bottom: 20px">Form Validation</h2>
         <form novalidate autocomplete="on" autocorrect="on">
-            <div class="form-input name-input">
+            <div class="form-input">
                 <input
                     id="name"
                     name="name"
@@ -18,9 +18,9 @@
                     required
                     autofocus
                 />
-                <div class="error-message"></div>
+                <div id="name-error-message" class="error-message"></div>
             </div>
-            <div class="form-input email-input">
+            <div class="form-input">
                 <input
                     id="email"
                     name="email"
@@ -28,9 +28,9 @@
                     placeholder="Email"
                     required
                 />
-                <div class="error-message"></div>
+                <div id="email-error-message"></div>
             </div>
-            <div class="form-input password-input">
+            <div class="form-input">
                 <input
                     id="password"
                     name="password"
@@ -38,23 +38,23 @@
                     placeholder="Password"
                     required
                 />
-                <div class="error-message"></div>
+                <div id="password-error-message"></div>
             </div>
-            <div class="form-input gender-input">
+            <div class="form-input">
                 <select name="gender" id="gender" required>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
-                <div class="error-message"></div>
+                <div id="gender-error-message"></div>
             </div>
-            <div class="form-input bio-input">
+            <div class="form-input">
                 <textarea
                     name="bio"
                     id="bio"
                     placeholder="Tell us about yourself"
                     rows="10"
                 ></textarea>
-                <div class="error-message"></div>
+                <div id="bio-error-message"></div>
             </div>
             <button type="submit">Submit</button>
         </form>
