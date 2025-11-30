@@ -6,18 +6,18 @@ let todos = [];
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const todoName = e.target[0].value.trim();
-    if (!todoName && todoName.length === 0) {
+    if (!todoName) {
         alert("Please provide a todo name");
         return;
     } else {
         const newTodo = {
             id: crypto.randomUUID(),
             name: todoName,
-            isCompleted: false
+            isCompleted: false,
         };
-        todos = [...todos, newTodo];
-        renderTodos();
+        todos.push(newTodo);
         saveTodos();
+        renderTodos();
         form.reset();
     }
 });
@@ -30,7 +30,7 @@ function renderTodos() {
         li.innerHTML = `
             <span>${todo.name}</span>
             <div class="todo-buttons">
-                <button class="todo-btn edit-todo-btn">
+                <button type="button" class="todo-btn edit-todo-btn">
                     <img
                         src="./assets/edit-icon.svg"
                         alt="edit-icon"
@@ -38,7 +38,7 @@ function renderTodos() {
                         loading="lazy"
                     />
                 </button>
-                <button class="todo-btn delete-todo-btn">
+                <button type="button" class="todo-btn delete-todo-btn">
                     <img
                         src="./assets/delete-icon.svg"
                         alt="delete-icon"
@@ -51,22 +51,23 @@ function renderTodos() {
 
         const editTodoBtn = li.querySelector(".edit-todo-btn");
         editTodoBtn.addEventListener("click", () => {
-            const newTodoName = prompt(
+            const output = prompt(
                 "Please provide the new todo name",
                 todo.name
-            ).trim();
+            );
+            const newTodoName = output.trim();
             if (newTodoName && newTodoName.length > 0) {
                 todo.name = newTodoName;
-                renderTodos();
                 saveTodos();
+                renderTodos();
             }
         });
 
         const deleteTodoBtn = li.querySelector(".delete-todo-btn");
         deleteTodoBtn.addEventListener("click", () => {
             todos = todos.filter((t) => t.id !== todo.id);
-            renderTodos();
             saveTodos();
+            renderTodos();
         });
 
         todoListContainer.appendChild(li);
@@ -74,9 +75,7 @@ function renderTodos() {
 }
 
 function saveTodos() {
-    if (todos) {
-        localStorage.setItem("todos", JSON.stringify(todos));
-    }
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function loadTodos() {
