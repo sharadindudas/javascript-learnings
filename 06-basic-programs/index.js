@@ -4,7 +4,8 @@ function myMap(arr, callback) {
     if (arr.length === 0) return [];
     if (typeof callback !== "function")
         throw new Error("Please provide the callback function");
-    let output = [];
+
+    const output = [];
     for (let i = 0; i < arr.length; i++) {
         output.push(callback(arr[i], i, arr));
     }
@@ -32,14 +33,14 @@ function flatten(arr) {
     if (arr.length === 0) return [];
 
     const output = [];
-    for (let i = 0; i < arr.length; i++) {
-        const item = arr[i];
-        if (Array.isArray(item)) {
-            item.forEach((innerItem) => output.push(innerItem));
+    arr.forEach((element) => {
+        const outerItem = element;
+        if (Array.isArray(outerItem)) {
+            outerItem.forEach((innerItem) => output.push(innerItem));
         } else {
-            output.push(item);
+            output.push(outerItem);
         }
-    }
+    });
     return output;
 }
 // console.log(flatten([1, [2, 3], 4])); // [1,2,3,4]
