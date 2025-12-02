@@ -13,7 +13,7 @@ form.addEventListener("submit", (e) => {
         const newTodo = {
             id: crypto.randomUUID(),
             name: todoName,
-            isCompleted: false,
+            isCompleted: false
         };
         todos.push(newTodo);
         saveTodos();
@@ -50,11 +50,14 @@ function renderTodos() {
         `;
 
         const editTodoBtn = li.querySelector(".edit-todo-btn");
-        editTodoBtn.addEventListener("click", () => {
+        editTodoBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
             const output = prompt(
                 "Please provide the new todo name",
                 todo.name
             );
+            if (output === null) return;
+
             const newTodoName = output.trim();
             if (newTodoName && newTodoName.length > 0) {
                 todo.name = newTodoName;
@@ -64,8 +67,19 @@ function renderTodos() {
         });
 
         const deleteTodoBtn = li.querySelector(".delete-todo-btn");
-        deleteTodoBtn.addEventListener("click", () => {
+        deleteTodoBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
             todos = todos.filter((t) => t.id !== todo.id);
+            saveTodos();
+            renderTodos();
+        });
+
+        if (todo.isCompleted) {
+            li.classList.add("completed");
+        }
+
+        li.querySelector("span").addEventListener("click", () => {
+            todo.isCompleted = !todo.isCompleted;
             saveTodos();
             renderTodos();
         });
@@ -80,7 +94,7 @@ function saveTodos() {
 
 function loadTodos() {
     const existingTodos = localStorage.getItem("todos");
-    if (saveTodos) {
+    if (existingTodos) {
         todos = JSON.parse(existingTodos);
         renderTodos();
     }

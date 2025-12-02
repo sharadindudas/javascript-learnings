@@ -44,3 +44,19 @@ function flatten(arr) {
     return output;
 }
 // console.log(flatten([1, [2, 3], 4])); // [1,2,3,4]
+
+// Problem 4 — Flatten an array (Infinite level)
+function flattenDeep(arr, output = []) {
+    if (!Array.isArray(arr)) throw new Error("Please provide an array");
+    if (arr.length === 0) return [];
+
+    arr.forEach((item) => {
+        if (Array.isArray(item)) {
+            flattenDeep(item, output);
+        } else {
+            output.push(item);
+        }
+    });
+}
+
+console.log(flattenDeep([1, 2, 4, [5, [6, [9, [10]]]]], []));

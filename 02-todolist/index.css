@@ -67,3 +67,7 @@ form {
     height: 40px;
     border-radius: 100%;
 }
+
+.todo-item.completed > span {
+    text-decoration: line-through;
+}
