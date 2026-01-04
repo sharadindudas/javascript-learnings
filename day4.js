@@ -1,37 +1,60 @@
-let x = 0;
-if (x) {
-    console.log("truthy");
-} else {
-    console.log("falsy");
-} // falsy
+// Remove Duplicates
 
-function login(user) {
-    if (user) {
-        if (user.isActive) {
-            if (user.role === "admin") {
-                return "Welcome admin";
-            } else {
-                return "Welcome user";
-            }
-        } else {
-            return "User inactive";
-        }
-    } else {
-        return "No user";
+/*
+    Input: [1, 2, 2, 3, 1]
+    Output: [1, 2, 3]
+    Steps: Take array as input -> validate the data -> loop over the array elements -> initialize a blank array holding variable -> if the current array element is already inside the new array then don't push it else push it inside the new array -> return the new array  
+    Edge cases: valid array or not, empty array, if the elements inside the array is finite numbers or not
+*/
+
+function removeDuplicates(input) {
+    if (!Array.isArray(input)) {
+        throw new Error("Please provide an array as input");
     }
-}
 
-function login(user) {
-    if (!user) return "No user";
-    if (!user.isActive) return "User inactive";
-    if (user.role === "admin") return "Welcome admin";
-    return "Welcome user";
-}
+    if (!input.length) {
+        throw new Error("Array must not be empty");
+    }
 
-function canVote(age, isCitizen = true) {
-    if (typeof age !== "number") return false;
-    if (age < 18) return false;
-    if (!isCitizen) return false;
-    return true;
+    const output = [];
+    for (let i = 0; i < input.length; i++) {
+        const value = input[i];
+
+        if (!Number.isFinite(value)) {
+            throw new Error("Array elements must be finite numbers");
+        }
+
+        if (!output.includes(value)) {
+            output.push(value);
+        }
+    }
+    return output;
 }
-console.log(canVote(18, true));
+console.log(removeDuplicates([1, 2, 2, 3, 1]));
+
+function removeDuplicatesAdvanced(input) {
+    if (!Array.isArray(input)) {
+        throw new Error("Please provide an array as input");
+    }
+
+    if (!input.length) {
+        throw new Error("Array must not be empty");
+    }
+
+    const seen = new Set();
+    const output = [];
+    for (let i = 0; i < input.length; i++) {
+        const value = input[i];
+
+        if (!Number.isFinite(value)) {
+            throw new Error("Array elements must be finite numbers");
+        }
+
+        if (!seen.has(value)) {
+            seen.add(value);
+            output.push(value);
+        }
+    }
+    return output;
+}
+console.log(removeDuplicatesAdvanced([1, 2, 2, 3, 1]));

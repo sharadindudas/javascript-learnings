@@ -1,54 +1,35 @@
-console.log(10 + 5); // 15
-console.log(10 - 5); // 5
-console.log(10 * 5); // 50
-console.log(10 / 5); // 2
-console.log(10 % 3); // 1
+// Find the Largest Number
 
-console.log(10 > 5); // true
-console.log(10 < 5); // false
-console.log(10 >= 10); // true
-console.log(10 <= 9); // false
+/*
+    Input: [3, 7, 2, 9, 1]
+    Output: 9
+    Steps: Take array as input -> validate the data -> loop over the array elements -> initialize a variable with the lowest number (-Infinity) -> check if the array element is greater than the variable we initialized if yes then update the variable value with the new value else don't update it -> return the largest number 
+    Edge cases: valid array or not, empty array, if the elements inside the array is finite numbers or not
+*/
 
-console.log(5 == "5"); // true
-console.log(0 == false); // true
-console.log(null == undefined); // true
+function largestNumber(input) {
+    if (!Array.isArray(input)) {
+        throw new Error("Please provide an array as input");
+    }
 
-console.log(5 === "5"); // false
-console.log(0 === false); // false
-console.log(null === undefined); // false
+    if (!input.length) {
+        throw new Error("Array must not be empty");
+    }
 
-console.log("5" + 1); // "51"
-console.log("5" - 1); // 4
-console.log("5" * 2); // 10
-console.log("5" / 5); // 1
+    let max = -Infinity;
 
-if ("") console.log("runs?"); // no
-if ([]) console.log("runs?"); // yes
-if ({}) console.log("runs?"); // yes
+    for (let i = 0; i < input.length; i++) {
+        const value = input[i];
 
-console.log(true && false); // false
-console.log(true || false); // true
-console.log(!true); // false
+        if (!Number.isFinite(value)) {
+            throw new Error("Array elements must be finite numbers");
+        }
 
-console.log("hello" && 10); // 10
-console.log(null || "fallback"); // fallback
+        if (value > max) {
+            max = value;
+        }
+    }
 
-console.log(0 == false); // true
-console.log(0 === false); // false
-
-console.log("" == false); // true
-console.log("" === false); // false
-
-console.log(null == undefined); // true
-console.log(null === undefined); // false
-
-console.log(1 + "2" + 3); // "123"
-console.log(1 + 2 + "3"); // "33"
-console.log("6" - 1); // 5
-console.log("6" + 1); // "61"
-
-// falsy -> 0 "" undefined null false NaN
-
-// && -> returns first falsy or last value
-// || -> returns first truthy value
-// ?? -> returns right side only if left is null/undefined
+    return max;
+}
+console.log(largestNumber([3, 7, 2, 9, 1]));

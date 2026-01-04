@@ -1,50 +1,48 @@
-// Primitive data types
-// null number string symbol boolean bigint undefined (NNSSBBU) shortcut to remember
+// Count Characters
 
-// Non primitive data types
-// object
+/*
+    Input: "aab"
+    Output: { a: 2, b: 1 }
+    Steps: Take the input -> validate the input (valid input / empty input / remove spaces from start and end) -> loop through the string -> define an empty object and check if the input element's character exists inside the object or not if it doesn't exists add it with a count 1 and if already exists just increase the already existing count -> return the object  
+    Edge cases: Valid string / Empty string / Remove trailing spaces from start and end
+*/
 
-console.log(typeof 10); // number
-console.log(typeof "hello"); // string
-console.log(typeof true); // boolean
-console.log(typeof undefined); // undefined
-console.log(typeof null); // object (it's a js bug that null is object)
-console.log(typeof {}); // object
-console.log(typeof []); // object
+function countCharacters(input) {
+    // Validation of data
+    if (typeof input !== "string")
+        throw new Error("Please provide a valid input");
+    const trimmedInput = input.trim();
+    if (trimmedInput.length === 0) throw new Error("Input must not be empty");
 
-let a; // undefined means the variable is assigned memory but we haven't initialised it with some value yet
-let b = null; // null means the variable is deliberately / intentionally set to nothing or void
-console.log(a);
-console.log(b);
+    // Loop and return the result
+    const output = {};
+    for (let i = 0; i < trimmedInput.length; i++) {
+        if (output[trimmedInput[i]] === undefined) {
+            output[trimmedInput[i]] = 1;
+        } else {
+            output[trimmedInput[i]]++;
+        }
+    }
+    return output;
+}
+console.log(countCharacters("aab"));
 
-let x = 10;
-let y = x;
-x = 20;
-console.log(y); // 10 because primitive data type we only copy the variable's value not the actual variable's memory reference
+function countCharactersAdvanced(input) {
+    // Validation of data
+    if (typeof input !== "string")
+        throw new Error("Please provide a valid input");
 
-let obj1 = { value: 10 };
-let obj2 = obj1;
-obj1.value = 20;
-console.log(obj2.value); // 20 because for non primitive data type we pass the original variable's reference (heap memory) as the object is stored on the heap memory rather than the stack memory itself (used for primitive data types)
+    const trimmedInput = input.trim();
+    if (trimmedInput.length === 0) throw new Error("Input must not be empty");
 
-let a1 = 5;
-let b1 = a1;
-b1 = 10;
-console.log(a1); // 5
-console.log(b1); // 10
-
-let x1 = { count: 1 };
-let y1 = x1;
-y1.count = 5;
-console.log(x1.count); // 5
-console.log(y1.count); // 5
-
-console.log(typeof null); // object (it's a js bug that null is object)
-console.log(typeof 20); // number
-console.log(typeof "hello"); // string
-console.log(typeof Symbol(10)); // Symbol
-console.log(typeof true); // boolean
-console.log(typeof BigInt(20)); // bigint
-console.log(typeof undefined); // undefined
-console.log(typeof {}); // object
-console.log(typeof []); // object
+    const result = Array.from(trimmedInput).reduce((prev, curr) => {
+        if (prev[curr] === undefined) {
+            prev[curr] = 1;
+        } else {
+            prev[curr]++;
+        }
+        return prev;
+    }, {});
+    return result;
+}
+console.log(countCharactersAdvanced("aab"));

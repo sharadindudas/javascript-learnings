@@ -1,23 +1,36 @@
-let x = 5;
-let y = x;
+// Reverse a string
 
-x = 10;
+/*
+    Input: "Hello"
+    Output: "olleH"
+    Steps: take a input (string) -> validate the input (empty/valid/remove spaces) -> loop the whole string starting from input's last index till it reaches the string's first index -> take those last elements and store it inside a new variable per iteration -> return the string
+    Edge cases: Valid string or not, empty string or not, extra spaces in starting and ending of the string
+*/
 
-console.log(x); // 10
-console.log(y); // 5
+function reverseAString(input) {
+    // Validation of data
+    if (typeof input !== "string")
+        throw new Error("Please provide a valid input");
+    const trimmedInput = input.trim();
+    if (trimmedInput.length === 0) throw new Error("Input must not be empty");
 
-// because y has the copy of x rather than the original memory reference (primitive datatype)
-
-const a = 10,
-    b = 20;
-function sum(x, y) {
-    return x + y;
+    // Loop and return the result
+    let output = "";
+    for (let i = trimmedInput.length - 1; i >= 0; i--) {
+        output += trimmedInput[i];
+    }
+    return output;
 }
-console.log(sum(a, b));
+console.log(reverseAString("Hello"));
 
-const c = 348,
-    d = 423,
-    e = 3548,
-    f = 23,
-    g = 20;
-console.log(c, d, e, f, g);
+function reverseAStringAdvanced(input) {
+    // Validation of data
+    if (typeof input !== "string")
+        throw new Error("Please provide a valid input");
+    const trimmedInput = input.trim();
+    if (trimmedInput.length === 0) throw new Error("Input must not be empty");
+
+    // Return the reversed string
+    return trimmedInput.split("").reverse().join("");
+}
+console.log(reverseAStringAdvanced("Hello"));
