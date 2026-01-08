@@ -12,10 +12,6 @@ function removeDuplicates(input) {
         throw new Error("Please provide an array as input");
     }
 
-    if (!input.length) {
-        throw new Error("Array must not be empty");
-    }
-
     const output = [];
     for (let i = 0; i < input.length; i++) {
         const value = input[i];
@@ -31,14 +27,11 @@ function removeDuplicates(input) {
     return output;
 }
 console.log(removeDuplicates([1, 2, 2, 3, 1]));
+console.log(removeDuplicates([]));
 
 function removeDuplicatesAdvanced(input) {
     if (!Array.isArray(input)) {
         throw new Error("Please provide an array as input");
-    }
-
-    if (!input.length) {
-        throw new Error("Array must not be empty");
     }
 
     const seen = new Set();

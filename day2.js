@@ -8,13 +8,11 @@
 */
 
 function countCharacters(input) {
-    // Validation of data
     if (typeof input !== "string")
         throw new Error("Please provide a valid input");
     const trimmedInput = input.trim();
     if (trimmedInput.length === 0) throw new Error("Input must not be empty");
 
-    // Loop and return the result
     const output = {};
     for (let i = 0; i < trimmedInput.length; i++) {
         if (output[trimmedInput[i]] === undefined) {
@@ -28,7 +26,6 @@ function countCharacters(input) {
 console.log(countCharacters("aab"));
 
 function countCharactersAdvanced(input) {
-    // Validation of data
     if (typeof input !== "string")
         throw new Error("Please provide a valid input");
 

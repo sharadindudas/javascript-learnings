@@ -8,13 +8,11 @@
 */
 
 function reverseAString(input) {
-    // Validation of data
     if (typeof input !== "string")
         throw new Error("Please provide a valid input");
     const trimmedInput = input.trim();
     if (trimmedInput.length === 0) throw new Error("Input must not be empty");
 
-    // Loop and return the result
     let output = "";
     for (let i = trimmedInput.length - 1; i >= 0; i--) {
         output += trimmedInput[i];
@@ -24,13 +22,11 @@ function reverseAString(input) {
 console.log(reverseAString("Hello"));
 
 function reverseAStringAdvanced(input) {
-    // Validation of data
     if (typeof input !== "string")
         throw new Error("Please provide a valid input");
     const trimmedInput = input.trim();
     if (trimmedInput.length === 0) throw new Error("Input must not be empty");
 
-    // Return the reversed string
     return trimmedInput.split("").reverse().join("");
 }
 console.log(reverseAStringAdvanced("Hello"));

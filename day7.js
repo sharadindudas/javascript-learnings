@@ -21,10 +21,6 @@ function countCharactersFromString(input) {
     for (let i = 0; i < input.length; i++) {
         const value = input[i];
 
-        if (!Number.isFinite(value)) {
-            throw new Error("Array elements must be finite numbers");
-        }
-
         if (value === " ") {
             continue;
         }
