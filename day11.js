@@ -11,11 +11,15 @@ console.log(checkIsEvenOrOdd(0));
 console.log(checkIsEvenOrOdd(7));
 
 // Write a function that finds and prints the smallest number among three given numbers
-function findSmallestNumber(...inputs) {
+function findSmallestNumber(...input) {
     let smallestNumber = Infinity;
 
-    for (let i = 0; i < inputs.length; i++) {
-        const value = inputs[i];
+    if (!Array.isArray(input)) {
+        throw new Error("Input must be an array");
+    }
+
+    for (let i = 0; i < input.length; i++) {
+        const value = input[i];
 
         if (!Number.isFinite(value)) {
             throw new Error("All inputs must be finite numbers");
@@ -45,6 +49,34 @@ function reverseAString(input) {
     return output;
 }
 
-console.log(reverseAString("Remo"))
-console.log(reverseAString("Teacher"))
-console.log(reverseAString("Lolll"))
+console.log(reverseAString(""));
+console.log(reverseAString("Remo"));
+console.log(reverseAString("Teacher"));
+console.log(reverseAString("Lolll"));
+
+function factorialOfANumber(input) {
+    if (typeof input !== "number") {
+        throw new Error("Input must be a number");
+    }
+
+    if (!Number.isFinite(input)) {
+        throw new Error("Input must be a finite number");
+    }
+
+    if (!Number.isInteger(input)) {
+        throw new Error("Input must be an integer");
+    }
+
+    if (input < 0) {
+        throw new Error("Input must be greater or equal to zero");
+    }
+
+    let output = 1;
+
+    for (let i = 1; i <= input; i++) {
+        output *= i;
+    }
+    return output;
+}
+
+console.log(factorialOfANumber(5));
