@@ -22,8 +22,8 @@ function generateMultiplicationTable(input, range) {
     }
     return output;
 }
-// console.log(generateMultiplicationTable(5, 10));
-// console.log(generateMultiplicationTable(8, 10));
+console.log(generateMultiplicationTable(5, 10));
+console.log(generateMultiplicationTable(8, 10));
 
 function generateMultiplicationTableAdvanced(input, range) {
     if (typeof input !== "number" || typeof range !== "number") {
@@ -42,7 +42,7 @@ function generateMultiplicationTableAdvanced(input, range) {
         throw new Error("Range must be a positive integer");
     }
 
-    let output = []
+    let output = [];
     for (let i = 1; i <= range; i++) {
         output.push(`${input} * ${i} = ${input * i}`);
     }

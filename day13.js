@@ -58,7 +58,7 @@ function sumOfAllDigitsMath(input) {
     let sum = 0;
     while (input > 0) {
         sum += input % 10;
-        input = Math.floor(input / 10);
+        input = parseInt(input / 10);
     }
     return sum;
 }
