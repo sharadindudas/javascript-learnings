@@ -1,12 +1,4 @@
-// Odd even
-
-/*
-    Input: [1, 2, 3, 4, 5, 6]
-    Output: { even: [2, 4, 6], odd: [1, 3, 5] }
-    Steps: Validation of array -> Create two even and odd array variables -> loop through the array elements -> if the array element is divisible by 2 then it push it inside even array else odd -> return the output
-    Edge cases: Valid array or not, Array is empty or not, Finite array elements or not
-*/
-
+// Write a function that calculates the odd and even numbers inside an array
 function oddEven(input) {
     if (!Array.isArray(input)) {
         throw new Error("Input must be an array");

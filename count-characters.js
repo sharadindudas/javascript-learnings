@@ -1,12 +1,4 @@
-// Count Characters
-
-/*
-    Input: "aab"
-    Output: { a: 2, b: 1 }
-    Steps: Take the input -> validate the input (valid input / empty input / remove spaces from start and end) -> loop through the string -> define an empty object and check if the input element's character exists inside the object or not if it doesn't exists add it with a count 1 and if already exists just increase the already existing count -> return the object  
-    Edge cases: Valid string / Empty string / Remove trailing spaces from start and end
-*/
-
+// Write a function that counts the number of characters from a string
 function countCharacters(input) {
     if (typeof input !== "string")
         throw new Error("Please provide a valid input");

@@ -1,12 +1,4 @@
-// Reverse a string
-
-/*
-    Input: "Hello"
-    Output: "olleH"
-    Steps: take a input (string) -> validate the input (empty/valid/remove spaces) -> loop the whole string starting from input's last index till it reaches the string's first index -> take those last elements and store it inside a new variable per iteration -> return the string
-    Edge cases: Valid string or not, empty string or not, extra spaces in starting and ending of the string
-*/
-
+// Write a function that reverses a string
 function reverseAString(input) {
     if (typeof input !== "string")
         throw new Error("Please provide a valid input");

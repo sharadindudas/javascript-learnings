@@ -1,12 +1,4 @@
-// Remove Duplicates
-
-/*
-    Input: [1, 2, 2, 3, 1]
-    Output: [1, 2, 3]
-    Steps: Take array as input -> validate the data -> loop over the array elements -> initialize a blank array holding variable -> if the current array element is already inside the new array then don't push it else push it inside the new array -> return the new array  
-    Edge cases: valid array or not, empty array, if the elements inside the array is finite numbers or not
-*/
-
+// Write a function that remove the duplicates from the array
 function removeDuplicates(input) {
     if (!Array.isArray(input)) {
         throw new Error("Please provide an array as input");

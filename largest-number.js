@@ -1,12 +1,4 @@
-// Find the Largest Number
-
-/*
-    Input: [3, 7, 2, 9, 1]
-    Output: 9
-    Steps: Take array as input -> validate the data -> loop over the array elements -> initialize a variable with the lowest number (-Infinity) -> check if the array element is greater than the variable we initialized if yes then update the variable value with the new value else don't update it -> return the largest number 
-    Edge cases: valid array or not, empty array, if the elements inside the array is finite numbers or not
-*/
-
+// Write a function to find the largest number inside an array
 function largestNumber(input) {
     if (!Array.isArray(input)) {
         throw new Error("Please provide an array as input");
