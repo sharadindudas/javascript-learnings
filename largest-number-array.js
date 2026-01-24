@@ -1,7 +1,7 @@
-// Write a function to find the largest number inside an array
-function largestNumber(input) {
+// Write a function that returns the largest number in an array
+function largestNumberInsideArray(input) {
     if (!Array.isArray(input)) {
-        throw new Error("Please provide an array as input");
+        throw new Error("Please provide an array");
     }
 
     if (!input.length) {
@@ -24,4 +24,4 @@ function largestNumber(input) {
 
     return max;
 }
-console.log(largestNumber([3, 7, 2, 9, 1]));
+console.log(largestNumberInsideArray([3, 7, 2, 9, 1]));
