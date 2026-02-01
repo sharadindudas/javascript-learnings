@@ -8,9 +8,9 @@ function largestNumberInsideArray(input) {
         throw new Error("Array must not be empty");
     }
 
-    let max = -Infinity;
+    let max = input[i];
 
-    for (let i = 0; i < input.length; i++) {
+    for (let i = 1; i < input.length; i++) {
         const value = input[i];
 
         if (!Number.isFinite(value)) {
