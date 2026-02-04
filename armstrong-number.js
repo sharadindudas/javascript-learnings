@@ -59,7 +59,7 @@ function isArmstrongNumber2(input) {
 
     let sum = 0;
     digits.forEach((d) => {
-        sum += d ** digits.length
+        sum += d ** digits.length;
     });
 
     return sum === input;
@@ -68,3 +68,23 @@ console.log(isArmstrongNumber2(153));
 console.log(isArmstrongNumber2(370));
 console.log(isArmstrongNumber2(243));
 console.log(isArmstrongNumber2(0));
+
+function isArmstrongNumber3(input) {
+    if (typeof input !== "number" || !Number.isInteger(input)) {
+        throw new Error("Please provide a positive number");
+    }
+
+    let output = 0,
+        temp = input;
+    const digits = input.toString().length;
+
+    while (input > 0) {
+        output += Math.pow(input % 10, digits);
+        input = Math.floor(input / 10);
+    }
+    return temp === output;
+}
+console.log(isArmstrongNumber3(153));
+console.log(isArmstrongNumber3(370));
+console.log(isArmstrongNumber3(243));
+console.log(isArmstrongNumber3(0));
