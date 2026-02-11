@@ -23,10 +23,10 @@ function countCharacterOccurrances2(input) {
 
     input = input.toLowerCase().replace(/[^a-z0-9]/g, "");
     const result = input.split("").reduce((acc, curr) => {
-        if (acc[curr] !== undefined && acc[curr]) {
-            acc[curr]++;
-        } else {
+        if (!acc[curr]) {
             acc[curr] = 1;
+        } else {
+            acc[curr]++;
         }
         return acc;
     }, {});
