@@ -43,3 +43,20 @@ function removeDuplicatesAdvanced(input) {
     return output;
 }
 console.log(removeDuplicatesAdvanced([1, 2, 2, 3, 1]));
+
+function removeDuplicatesV2(input) {
+    if (!Array.isArray(input)) throw new Error("Please provide an array");
+
+    const output = [],
+        seen = {};
+    for (let i = 0; i < input.length; i++) {
+        const item = input[i];
+        if (!seen[item]) {
+            seen[item] = true;
+            output.push(item);
+        }
+    }
+
+    return output;
+}
+console.log(removeDuplicatesV2([1, 2, 2, 3, 1]));
