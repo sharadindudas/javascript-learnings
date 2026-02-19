@@ -35,6 +35,7 @@ A curated collection of core JavaScript logic building and DSA foundational prog
 - [x] Search Number Array
 - [x] Second Largest Number Array
 - [x] Smallest Number Array
+- [x] Transpose a matrix
 
 ---
 
@@ -47,7 +48,7 @@ A curated collection of core JavaScript logic building and DSA foundational prog
 - [x] First Non Repeating Character
 - [x] Palindrome String
 - [x] Reverse A String
-- [x] String Alphabetical Order
+- [x] Alphabetical Order
 - [x] Two String Anagram
 
 ---
